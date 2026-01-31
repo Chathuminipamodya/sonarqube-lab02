@@ -13,7 +13,7 @@ public class UserService {
     // Fixed: Using PreparedStatement to prevent SQL Injection
     public void findUser(String username) throws SQLException {
         String url = "jdbc:mysql://localhost/db";
-        String query = "SELECT * FROM users WHERE name = ?";
+        String query = "SELECT id, name, email FROM users WHERE name = ?";
         
         try (Connection conn = DriverManager.getConnection(url, "root", password);
              PreparedStatement pstmt = conn.prepareStatement(query)) {
